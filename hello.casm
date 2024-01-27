@@ -3,7 +3,7 @@
 
 _start:
 
-    let  str: command[256] = ""
+    let  str: command[25] = ""
 
     command = "What is you name? " cinput()
     
