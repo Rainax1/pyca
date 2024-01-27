@@ -9,29 +9,57 @@
 %include example.casm
 %include testfunc from example.casm
 
-%const float: PI = 3.14
+%const Float :: PI = 3.14
 
 ;; variable declaration and some data types
 
-let int: y = 34
-let str: name = "tom"
+
+let Int :: y = 34
+let Str :: name = "tom"
+let Bool :: isTrue = True
 let n = Nothing
-let list: List = <1;2;3;4>
+let List :: list = .[1;2;3;4]
 
-let dict: test = {
+let Map :: test = .{
+    
+    "one" => 1;
+    "two" => 2;
+    
+    ;; you can assign specific datatypes to both Key or Value
+    
+    Int :: 3 :: Str => "3";
+    Float :: 4.0 :: Int => 4;
+    Str :: "five" :: Float => 5.0;
+    Str :: "isTrue" :: Bool => True
+    
+    ;; Key
+    
+    Str :: "stringValue" => 2;
+    
+    // datatype of value will be detected
+    
+    ;; Value
+    
+    "floatValue" :: Float => 3.0;
+    
+    // datatype of Key will be detected
+    
+    
+    "itoa" => Iota; ;;  iota is a special built-in pre-declared identifier that simplifies the definition of incrementing constants
+}
 
-    a = iota ;; reserved keyword like iota in go lang
-    b = iota
+let Map<String, Int> :: idk = .{
+
+    "one" => 1
+    "two" => 2
 
 }
+
 
 
 ! comment
 ;; comment
 
-fn globalFunc(a: int) -> int {
-    ret a
-}
 
 fn returnTrueFlase() {
     return rand.choose(True, False)
@@ -39,21 +67,21 @@ fn returnTrueFlase() {
 
 fn forLoop() return Nothing {
 
-<<<<<<< HEAD
     @for _ in z range {
-        z writeln
-=======
-<<<<<<< HEAD
-    @for _ in (z)range {
-        (z)writeln
-=======
-    @for _ in z range {
-        z writeln
->>>>>>> 11cd092 (casm.md)
->>>>>>> 7e9b494 (casm.md)
-        ret Nothing
+        _ cwriteln
     }
     @endfor
+    ret Nothing
+
+}
+
+fn While() -> Nothing {
+
+    @while 10 0 > do {
+        10 cwriteln
+    }
+    @end
+    ret Nothing
 
 }
 
@@ -61,14 +89,14 @@ fn forLoop() return Nothing {
 
 _start:
 
-    fn add(a: int, b:int) return int {
-        ;; return int , can be written as -> int
+    fn add(a :: Int, b :: Int) return Int {
+        ;; return Int , can be written as " -> Int "
 
         ret a + b
 
     }
 
-    (List@1)writeln
+     list@1 cwriteln
 
     List[-2] = 1
 

@@ -1,9 +1,20 @@
 %refer *native*
 
 
+fn WhileEg() -> Nothing {
+    
+    let Int :: x = 10
+    @while x 0 > do{
+        x cwriteln
+        x--
+    }
+    @end
+    ret Nothing
+}
+
 _start:
 
-    let  str: command[25] = ""
+    let  Str :: command[25] = ""
 
     command = "What is you name? " cinput()
     
