@@ -1,4 +1,4 @@
-```javascript
+```c++
 %refer *native*  
 ;; this line is imporant and should be in start of program
 
@@ -10,10 +10,11 @@
 %include testfunc from example.casm
 
 %const Float :: PI = 3.14
-
+```
+```asm
 ;; variable declaration and some data types
-
-
+```
+```haskell
 let Int :: y = 34
 let Str :: name = "tom"
 let Bool :: isTrue = True
@@ -59,8 +60,8 @@ let Map<String, Int> :: idk = .{
 
 ! comment
 ;; comment
-
-
+```
+```rust
 fn returnTrueFlase() {
     return rand.choose(True, False)
 }
@@ -84,9 +85,9 @@ fn While() -> Nothing {
     ret Nothing
 
 }
+```
 
-
-
+```asm
 _start:
 
     fn add(a :: Int, b :: Int) return Int {
