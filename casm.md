@@ -1,4 +1,4 @@
-```java
+```haskell
 %refer *native*  
 ;; this line is imporant and should be in start of program
 
