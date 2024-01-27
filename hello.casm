@@ -1,0 +1,21 @@
+%refer *native*
+
+
+_start:
+
+    let  str: command[256] = ""
+
+    command = "What is you name? " cinput()
+    
+    @if !(command) {
+        "ERROR: could not read your name, sorry ( ._.)\n" cwriteln
+    }
+    @else {
+        "Hello, *\n", command cwriteln
+        "! ( ^-^)/\n" cwriteln
+        drop 1
+    }
+    @endfi
+
+
+_end * ret 0
