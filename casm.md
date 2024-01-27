@@ -10,8 +10,6 @@
 %include testfunc from example.casm
 
 %const Float :: PI = 3.14
-```
-```asm
 ;; variable declaration and some data types
 ```
 ```haskell
