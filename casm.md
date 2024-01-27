@@ -39,8 +39,18 @@ fn returnTrueFlase() {
 
 fn forLoop() return Nothing {
 
+<<<<<<< HEAD
     @for _ in z range {
         z writeln
+=======
+<<<<<<< HEAD
+    @for _ in (z)range {
+        (z)writeln
+=======
+    @for _ in z range {
+        z writeln
+>>>>>>> 11cd092 (casm.md)
+>>>>>>> 7e9b494 (casm.md)
         ret Nothing
     }
     @endfor
@@ -50,8 +60,6 @@ fn forLoop() return Nothing {
 
 
 _start:
-
-    ! this function is not available outside &start
 
     fn add(a: int, b:int) return int {
         ;; return int , can be written as -> int
