@@ -13,7 +13,9 @@ You can run it in
 
 - Compile Mode
 
-    compile file to executalble, * need PyInstaller *
+    compile file to executalble, ***need PyInstaller***
+
+## Example Code
 
 ```asm
 %refer *native*  
