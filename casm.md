@@ -1,5 +1,7 @@
 ```C
-%refer *native*  ;; this line is imporant and should be in start of program
+%refer *native*  
+;; this line is imporant and should be in start of program
+
 
 (from *native* refer sys.stdout)
 (from *native* refer random as rand)
@@ -9,10 +11,19 @@
 
 %const float: PI = 3.14
 
+;; variable declaration and some data types
+
 let int: y = 34
 let str: name = "tom"
-
+let n = Nothing
 let list: List = <1;2;3;4>
+
+let dict: test = {
+
+    a = iota ;; reserved keyword like iota in go lang
+    b = iota
+
+}
 
 
 ! comment
