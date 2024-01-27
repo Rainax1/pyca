@@ -39,11 +39,11 @@ fn returnTrueFlase() {
 
 fn forLoop() return Nothing {
 
-    %for _ in (z)range {
-        (z)writeln
+    @for _ in z range {
+        z writeln
         ret Nothing
     }
-    %endfor
+    @endfor
 
 }
 
@@ -68,27 +68,27 @@ _start:
 
     @if (result == 7)  {
 
-        ("correct %d", result)writeln
+        "correct %d", result cwriteln
 
     } @else if (result ;= 6) {
 
-        ("idk")writeln
+        "idk" cwriteln
     } @else {
 
-        ("wrong %d", result)
+        "wrong *\n", result cwriteln
 
     }
 
     @endfi
 
     @if  returnTrueFlase() {
-        ("True")writeln
+        "True" cwriteln
         drop 0            ;; drop is like exit() in  python
 
     }
     @else {
 
-        ("False")writeln
+        "False" cwriteln
         drop 1
     }
 
