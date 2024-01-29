@@ -107,7 +107,7 @@ let Map<String, Int> :: idk = .{
 }
 
 
-Async = async :: => True
+let Async = async :: => True
 ```
 ## Comments
 ```asm
@@ -118,7 +118,7 @@ Async = async :: => True
 
 ```rust
 fn returnTrueFlase() {
-    return rand.choose(True, False)
+    ret rand.choose(True, False)
 }
 
 fn forLoop() return Nothing {
