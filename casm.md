@@ -20,7 +20,7 @@
 ```asm
 %const Float :: PI = 3.14
 
-%const iota :: => Days {
+%const iota @ Days {
     Sun
     Mon
     Tue
@@ -31,6 +31,7 @@
 ```haskell
 ;; variable declaration and some data types
 
+;; let datatype  :: variable_name = value
 let Int :: y = 34
 let Str :: name = "tom"
 let Bool :: isTrue = True
@@ -87,7 +88,7 @@ let Map<String, Int> :: idk = .{
 }
 
 
-Async = async :: => True
+%const Async = async @ True
 ```
 ## Comments
 ```asm
@@ -98,11 +99,11 @@ Async = async :: => True
 
 ```rust
 fn returnTrueFlase() {
-    return rand.choose(True, False)
+    ret rand.choose(True, False)
 }
 
 fn forLoop() return Nothing {
-
+    let Int :: z = 10
     @for _ in z range {
         _ cwriteln
     }
