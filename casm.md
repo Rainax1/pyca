@@ -1,23 +1,56 @@
+# Casm
+
+## Imporant
 ```asm
 %refer *native*  
 ;; this line is imporant and should be in start of program
+```
 
+## Imports or Includes
 
-(from *native* refer sys.stdout)
-(from *native* refer random as rand)
+```asm
+(from *native* refer IO.stdout)
+(from *native* refer math)
+(from *native* refer randomly as rand)
 
 %include example.casm
 %include testfunc from example.casm
-
+```
+## Consts
+```asm
 %const Float :: PI = 3.14
+
+%const iota :: => Days {
+    Sun
+    Mon
+    Tue
+}
+```
+## Variables and DataTypes
+
+```haskell
 ;; variable declaration and some data types
 
 let Int :: y = 34
 let Str :: name = "tom"
 let Bool :: isTrue = True
 let n = Nothing
-let List :: list = .[1;2;3;4]
 
+;; Add Byte and One(char) DataType ,
+;; One -> '' or 1 - Should be in Single quotes ,
+;; Unity DataType only have 1 or ob1 and cannot be changed
+
+
+;; List
+let List :: list = .[1;2;True;'4']
+let List<Int> :: intList = .[1;2;3]
+let List<Str> :: strList = .["1";"2"]
+
+let List:*4<Int, Str, Float, Bool> :: all = .[1,"two",2.0, True]
+
+;; ImSeq or Tuple in python
+
+;; Map
 let Map :: test = .{
     
     "one" => 1;
@@ -54,10 +87,16 @@ let Map<String, Int> :: idk = .{
 }
 
 
-
+Async = async :: => True
+```
+## Comments
+```asm
 ! comment
 ;; comment
+```
+## Functions
 
+```rust
 fn returnTrueFlase() {
     return rand.choose(True, False)
 }
@@ -81,8 +120,9 @@ fn While() -> Nothing {
     ret Nothing
 
 }
+```
 
-
+```haskell
 _start:
 
     fn add(a :: Int, b :: Int) return Int {
@@ -129,5 +169,8 @@ _start:
 
 ;; exit code will come after _end
 
-_end * ret 0
+;; _end * ret 0
+
+_end:
+    ret 0
 ```
