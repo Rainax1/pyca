@@ -50,6 +50,7 @@ You can run it in
 ```haskell
 ;; variable declaration and some data types
 
+;; let datatype  :: variable_name = value
 let Int :: y = 34
 let Str :: name = "tom"
 let Bool :: isTrue = True
