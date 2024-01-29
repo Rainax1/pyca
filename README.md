@@ -175,8 +175,8 @@ _start:
 
     @endfi
 
-    @if  returnTrueFlase& {
-    ;; Can call function or class without any args using '&' after function
+    @if  returnTrueFlase? {
+    ;; Can call function or class without any args using '?' after function
     
     
         "True" cwriteln
