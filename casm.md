@@ -99,26 +99,26 @@ let Map<String, Int> :: idk = .{
 
 ```rust
 fn returnTrueFlase() {
-    ret rand.choose(True, False)
+   {True, False} rand.Choice ret
 }
 
-fn forLoop() return Nothing {
+fn forLoop() :: Nothing {
     let Int :: z = 10
     @for _ in z range {
         _ cwriteln
     }
     @endfor
-    ret Nothing
+    Nothing ret
 
 }
 
-fn While() -> Nothing {
+fn While() :: Nothing {
 
     @while 10 0 > do {
         10 cwriteln
     }
     @end
-    ret Nothing
+    Nothing ret
 
 }
 ```
@@ -126,10 +126,9 @@ fn While() -> Nothing {
 ```haskell
 _start:
 
-    fn add(a :: Int, b :: Int) return Int {
-        ;; return Int , can be written as " -> Int "
+    fn add(a :: Int, b :: Int) :: Int {
 
-        ret a + b
+        a + b ret
 
     }
 
@@ -137,32 +136,34 @@ _start:
 
     List[-2] = 1
 
-    result = add(4,3)
+    result = 3, 4 add
 
     @if (result == 7)  {
 
-        "correct %d", result cwriteln
+        "correct *\n", result cwriteln
+    ;;  "correct *\n", {result} cwriteln,    you can also wrap variable with curly braces if you need more readability
+    ;;                                       it will not change output
 
     } @else if (result ;= 6) {
 
         "idk" cwriteln
     } @else {
 
-        "wrong *\n", result cwriteln
+        "wrong: {result}\n" fcwriteln
 
     }
 
     @endfi
 
-    @if  returnTrueFlase() {
+    @if  returnTrueFlase {
         "True" cwriteln
-        drop 0            ;; drop is like exit() in  python
+        0 drop          ;; drop is like exit() in  python
 
     }
     @else {
 
         "False" cwriteln
-        drop 1
+        1 drop
     }
 
     @endfi
@@ -170,8 +171,6 @@ _start:
 
 ;; exit code will come after _end
 
-;; _end * ret 0
-
 _end:
-    ret 0
+    0 ret
 ```
