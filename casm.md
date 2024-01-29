@@ -121,6 +121,7 @@ fn While() :: Nothing {
     Nothing ret
 
 }
+
 ```
 
 ```haskell
@@ -155,7 +156,10 @@ _start:
 
     @endfi
 
-    @if  returnTrueFlase {
+    @if  returnTrueFlase& {
+    ;; Can call function or class without any args using '&' after function
+    
+    
         "True" cwriteln
         0 drop          ;; drop is like exit() in  python
 
