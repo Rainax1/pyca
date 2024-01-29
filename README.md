@@ -39,7 +39,7 @@ You can run it in
 ```asm
 %const Float :: PI = 3.14
 
-%const iota :: => Days {
+%const iota @ Days {
     Sun
     Mon
     Tue
@@ -107,7 +107,7 @@ let Map<String, Int> :: idk = .{
 }
 
 
-let Async = async :: => True
+%const Async = async @ True
 ```
 ## Comments
 ```asm
@@ -122,7 +122,7 @@ fn returnTrueFlase() {
 }
 
 fn forLoop() return Nothing {
-
+    let Int :: z = 10
     @for _ in z range {
         _ cwriteln
     }
