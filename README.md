@@ -1,5 +1,6 @@
-Custom Assembly language
-custom  language which transpile down to python
+Casm
+
+Language which transpile down to python
 
 You can run it in 
 

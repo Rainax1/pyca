@@ -2,40 +2,52 @@
 
 ## Imporant
 ```asm
-%refer *native*  
+&refer *native*  
 ;; this line is imporant and should be in start of program
 ```
 
 ## Imports or Includes
 
 ```asm
-(from *native* refer IO.stdout)
-(from *native* refer math)
-(from *native* refer randomly as rand)
+&refer *native*::IO::{stdout, Read, Write}
+&refer *native*::extra::{ myterminal, math, randomly as rand }
+&refer *native*::os::path::Isfile
 
-%include example.casm
-%include testfunc from example.casm
+;; example.casm
+&refer example
+&refer example::testfunc 
+
+
+Async @ True
+
 ```
 ## Consts
 ```asm
-%const Float :: PI = 3.14
+&const Float :: PI = 3.14
 
-%const iota @ Days {
+&const omega @ Days {
     Sun
     Mon
     Tue
 }
+
+omega {
+    zero
+    one
+    two
+}end
+
 ```
 ## Variables and DataTypes
 
 ```haskell
 ;; variable declaration and some data types
 
-;; let datatype  :: variable_name = value
-let Int :: y = 34
-let Str :: name = "tom"
-let Bool :: isTrue = True
-let n = Nothing
+;; var datatype  :: variable_name = value
+var Int :: y = 34
+var Str :: name = "tom"
+var Bool :: isTrue = True
+var n = Nothing
 
 ;; Add Byte and One(char) DataType ,
 ;; One -> '' or 1 - Should be in Single quotes ,
@@ -43,19 +55,19 @@ let n = Nothing
 
 
 ;; List
-let List :: list = .[1;2;True;'4']
-let List<Int> :: intList = .[1;2;3]
-let List<Str> :: strList = .["1";"2"]
+var List :: list = .[1;2;True;'4']
+var List<Int> :: intList = .[1;2;3]
+var List<Str> :: strList = .["1";"2"]
 
-let List:*4<Int, Str, Float, Bool> :: all = .[1,"two",2.0, True]
+var List:*4<Int, Str, Float, Bool> :: all = .[1,"two",2.0, True]
 
 ;; ImSeq or Tuple in python
 
 ;; Map
-let Map :: test = .{
+var Map :: test = .{
     
-    "one" => 1;
-    "two" => 2;
+    "one" => 1 
+    | "two" => 2;
     
     ;; you can assign specific datatypes to both Key or Value
     
@@ -77,10 +89,9 @@ let Map :: test = .{
     // datatype of Key will be detected
     
     
-    "itoa" => Iota; ;;  iota is a special built-in pre-declared identifier that simplifies the definition of incrementing constants
 }
 
-let Map<String, Int> :: idk = .{
+var Map<String, Int> :: idk = .{
 
     "one" => 1
     "two" => 2
@@ -88,7 +99,6 @@ let Map<String, Int> :: idk = .{
 }
 
 
-%const Async = async @ True
 ```
 ## Comments
 ```asm
@@ -98,12 +108,16 @@ let Map<String, Int> :: idk = .{
 ## Functions
 
 ```rust
-fn returnTrueFlase() {
-   {True, False} rand.Choice ret
+;; define fn -> defunc
+defunc returnTrueFlase() {
+   {True, False} rand::Choose ret
+   
+   ;; you can write it without rand::Choose 
+   ;; {True, False} Choose ret
 }
 
-fn forLoop() :: Nothing {
-    let Int :: z = 10
+defunc forLoop() :: Nothing {
+    var Int :: z = 10
     @for _ in z range {
         _ cwriteln
     }
@@ -112,7 +126,7 @@ fn forLoop() :: Nothing {
 
 }
 
-fn While() :: Nothing {
+defunc While() :: Nothing {
 
     @while 10 0 > do {
         10 cwriteln
@@ -122,12 +136,27 @@ fn While() :: Nothing {
 
 }
 
+```ocaml
+
+(*
+    try {
+        ;; code
+ }
+    rescue (Exception as e) {
+        "Error: ", e ValueError panic
+
+     }
+
+*)
+```
+
+
 ```
 
 ```haskell
 _start:
 
-    fn add(a :: Int, b :: Int) :: Int {
+    defunc add(a :: Int, b :: Int) :: Int {
 
         a + b ret
 
@@ -154,10 +183,10 @@ _start:
 
     }
 
-    @endfi
+    @endif
 
-    @if  returnTrueFlase& {
-    ;; Can call function or class without any args using '&' after function
+    @if  returnTrueFlase() {
+    ;; Can call function or class without any args using '()' after function
     
     
         "True" cwriteln
@@ -170,7 +199,7 @@ _start:
         1 drop
     }
 
-    @endfi
+    @endif
 
 
 ;; exit code will come after _end
