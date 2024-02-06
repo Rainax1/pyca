@@ -153,7 +153,7 @@ defunc While() :: Nothing {
 
 ```
 
-```haskell
+```asm
 _start:
 
     defunc add(a :: Int, b :: Int) :: Int {
