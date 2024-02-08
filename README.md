@@ -1,4 +1,5 @@
-Casm
+Pyca
+
 
 Language which transpile down to python
 
@@ -33,8 +34,8 @@ You can run it in
 (from *native* refer math)
 (from *native* refer randomly as rand)
 
-%include example.casm
-%include testfunc from example.casm
+%include example.pyca
+%include testfunc from example.pyca
 ```
 ## Consts
 ```asm
