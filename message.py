@@ -16,11 +16,18 @@ class Message:
                  wanna_exit: bool = False,
                  highlight: tuple = ()) -> None:
 
-        # highlight a specific word in message
-        # highlight = ("word", "Red")
-        #               ^       ^
-        #   word to highlight, color
-        # only one word
+
+        # The `highlight` tuple is used to specify a particular word and its desired color for highlighting within string.
+
+        # Highlight a specific word in message
+        #
+        # highlight=("word", "Red")
+        #             ^       ^  
+        # Word to highlight,  Color
+
+        # Note:
+        #   - Only one word can be highlighted at a time.
+        #   - The color parameter should be a valid color such as "Red," "Yellow," etc.
 
         if highlight:
             word_list = []
