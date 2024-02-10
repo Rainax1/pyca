@@ -21,7 +21,7 @@ except ImportError:
 
 
 #Custom
-from err import Error
+from message import Message
 from parser import Parser
 
 class Interpreter:

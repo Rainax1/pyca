@@ -1,5 +1,7 @@
-from errok import Error, Ok
+from message import Message
 from sys import exit as sysexit
+
+
 
 # Parser
 
