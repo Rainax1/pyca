@@ -47,7 +47,7 @@ omega {
 var Int :: y = 34
 var Str :: name = "tom"
 var Bool :: isTrue = True
-var n = Nothing
+var n = Null
 
 ;; Add Byte and One(char) DataType ,
 ;; One -> '' or 1 - Should be in Single quotes ,
@@ -59,7 +59,7 @@ var List :: list = .[1;2;True;'4']
 var List<Int> :: intList = .[1;2;3]
 var List<Str> :: strList = .["1";"2"]
 
-var List:*4<Int, Str, Float, Bool> :: all = .[1,"two",2.0, True]
+var List:!4<Int, Str, Float, Bool> :: all = .[1,"two",2.0, True]
 
 ;; ImSeq or Tuple in python
 
@@ -108,31 +108,37 @@ var Map<String, Int> :: idk = .{
 ## Functions
 
 ```rust
-;; define fn -> defunc
-defunc returnTrueFlase() {
-   {True, False} rand::Choose ret
+
+// define fn -> defunc
+
+// retInt :: defunc :: Int {
+//    0, 100 rand::RandomInt
+//}
+
+
+defunc returnTrueFlase():: Bool {
+   (True, False) rand::Choice ret
    
    ;; you can write it without rand::Choose 
-   ;; {True, False} Choose ret
+   ;; (True, False) Choice ret
 }
 
-defunc forLoop() :: Nothing {
+defunc forLoop() :: Void {
     var Int :: z = 10
     @for _ in z range {
         _ cwriteln
     }
     @endfor
-    Nothing ret
+    
 
 }
 
-defunc While() :: Nothing {
+defunc While() :: Void {
 
     @while 10 0 > do {
         10 cwriteln
     }
     @end
-    Nothing ret
 
 }
 

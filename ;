@@ -1,0 +1,7 @@
+&refer *native *
+
+    defunc
+    Greetings(greeting ::Str, name ::Str)::Str{// "@greeting@name" !fcwriteln
+                                               "@greeting@name" !fret}
+
+_start : var Str ::name = "Enter your name: " cinput
