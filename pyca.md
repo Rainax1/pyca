@@ -31,7 +31,7 @@ Async @ True
     Tue
 }
 
-omega {
+!ioda {
     zero
     one
     two
@@ -55,36 +55,36 @@ var n = Null
 
 
 ;; List
-var List :: list = .[1;2;True;'4']
-var List<Int> :: intList = .[1;2;3]
-var List<Str> :: strList = .["1";"2"]
+var List :: list = [1 | 2 | True | '4']
+var List<Int> :: intList = [1 | 2 | 3]
+var List<Str> :: strList = ["1" | "2"]
 
-var List:!4<Int, Str, Float, Bool> :: all = .[1,"two",2.0, True]
+var List:*4<Int, Str, Float, Bool> :: all = [1 | "two" | 2.0 | True]
 
 ;; ImSeq or Tuple in python
 
 ;; Map
-var Map :: test = .{
+var Map :: test = {
     
     "one" => 1 
     | "two" => 2;
     
-    ;; you can assign specific datatypes to both Key or Value
+    // you can assign specific datatypes to both Key or Value
     
-    Int :: 3 :: Str => "3";
-    Float :: 4.0 :: Int => 4;
-    Str :: "five" :: Float => 5.0;
-    Str :: "isTrue" :: Bool => True
+    | Int :: 3 :: Str => "3"
+    | Float :: 4.0 :: Int => 4
+    | Str :: "five" :: Float => 5.0
+    | Str :: "isTrue" :: Bool => True
     
-    ;; Key
+    // Key
     
-    Str :: "stringValue" => 2 ;
+    | Str :: "stringValue" => 2 ;
     
     // datatype of value will be detected
     
-    ;; Value
+    // Value
     
-    "floatValue" :: Float => 3.0;
+    | Str :: "floatValue" :: Float => 3.0;
     
     // datatype of Key will be detected
     
@@ -94,7 +94,7 @@ var Map :: test = .{
 var Map<String, Int> :: idk = .{
 
     "one" => 1
-    "two" => 2
+    | "two" => 2
 
 }
 
@@ -102,12 +102,17 @@ var Map<String, Int> :: idk = .{
 ```
 ## Comments
 ```asm
-! comment
-;; comment
+// comment
+
+{*
+    multiline
+    comment
+*}
+
 ```
 ## Functions
 
-```rust
+```haskell
 
 // define fn -> defunc
 
@@ -116,14 +121,14 @@ var Map<String, Int> :: idk = .{
 //}
 
 
-defunc returnTrueFlase():: Bool {
+returnTrueFlase :: defunc :: Bool {
    (True, False) rand::Choice ret
    
    ;; you can write it without rand::Choose 
    ;; (True, False) Choice ret
 }
 
-defunc forLoop() :: Void {
+forLoop :: defunc :: Void {
     var Int :: z = 10
     @for _ in z range {
         _ cwriteln
@@ -133,7 +138,7 @@ defunc forLoop() :: Void {
 
 }
 
-defunc While() :: Void {
+While() :: defunc :: Void {
 
     @while 10 0 > do {
         10 cwriteln
@@ -141,6 +146,33 @@ defunc While() :: Void {
     @end
 
 }
+
+
+# Class
+```python
+
+Car :: class {
+    #init {
+      var Int :: self[weight] = 40
+      var Str :: self[string] = "String"
+      
+      info :: defunc :: Void {
+          "Weight: {weight}" !fcwriteln
+          "string: {string}" !fcwriteln
+      }
+      
+      run :: defunc :: Void {
+          "Running ..." cwriteln
+      }
+    }
+}
+
+car = Car!
+car#info!
+car#run!
+
+
+```
 
 ```ocaml
 
@@ -159,13 +191,12 @@ defunc While() :: Void {
 
 ```
 
-```asm
-_start:
+```haskell
+!ex:
+;; execute :
 
-    defunc add(a :: Int, b :: Int) :: Int {
-
+    add(a :: Int, b :: Int) :: defunc :: Int ! {
         a + b ret
-
     }
 
      list@1 cwriteln
@@ -191,8 +222,8 @@ _start:
 
     @endif
 
-    @if  returnTrueFlase() {
-    ;; Can call function or class without any args using '()' after function
+    @if  returnTrueFlase! {
+    ;; Can call function or class without any args using '!' after function
     
     
         "True" cwriteln
@@ -208,8 +239,8 @@ _start:
     @endif
 
 
-;; exit code will come after _end
+;; exit code will come after #end
 
-_end:
+!end:
     0 ret
 ```
