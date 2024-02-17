@@ -50,11 +50,12 @@ class Message:
             message = message.lstrip()
 
 
-        print(f"\n{file}{message}")
+        print(f"{file}{message}")
         if wanna_exit:
             sysexit(1)
 
 
 if __name__ == "__main__":
     Message("INFO", message="Compiling 'hello.pyca'", color="Yellow", highlight=("Compiling", "Green"))
+    Message("CMD", message="pyca.py com hello.pyca", color="White", highlight=("com", "Magenta"))
     Message("ERROR","'cwrite', Unknown keyword, Did you mean 'cwriteln'?", filename="hello.pyca", line=4,col=17, wanna_exit=True, highlight=("Unknown","Yellow"))
