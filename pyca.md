@@ -2,7 +2,7 @@
 
 ## Imporant
 ```asm
-&refer *native*  
+&refer !native  
 ;; this line is imporant and should be in start of program
 ```
 
@@ -157,8 +157,9 @@ Car :: class {
       var Str :: self[string] = "String"
       
       info :: defunc :: Void {
-          "Weight: {weight}" !fcwriteln
-          "string: {string}" !fcwriteln
+          "Weight: @weight@" !fcwriteln
+          "string: @string" !fcwriteln
+          ;; "!@3y!@"
       }
       
       run :: defunc :: Void {
@@ -208,7 +209,7 @@ car#run!
     @if (result == 7)  {
 
         "correct *\n", result cwriteln
-    ;;  "correct *\n", {result} cwriteln,    you can also wrap variable with curly braces if you need more readability
+    ;;  "correct *\n", @result !fcwriteln,    you can also wrap variable with curly braces if you need more readability
     ;;                                       it will not change output
 
     } @else if (result ;= 6) {
@@ -216,7 +217,7 @@ car#run!
         "idk" cwriteln
     } @else {
 
-        "wrong: {result}\n" fcwriteln
+        "wrong: @result\n" !fcwriteln
 
     }
 

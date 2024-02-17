@@ -1,3 +1,6 @@
 &refer *native *
 
-    _start : "Hello, World!" cwriteln _end : 0 ret
+#ex: 
+    "Hello World" cwriteln 
+#end:
+    0 ret

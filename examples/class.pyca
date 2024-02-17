@@ -1,0 +1,23 @@
+&refer !native
+
+Human :: class {
+    #init {
+        var Int :: self[height] = 148
+        var Int :: self[weight] = 48
+    }
+
+    walk :: defunc :: Void {
+        "Walking ..." cwriteln
+    }
+
+    gender(gender :: Str) :: defunc :: Void {
+        "Gender: @gender" !fcwriteln
+    }
+}
+
+!ex:
+    tom = Human!
+    tom # "Male" gender
+    tom#walk
+!end:
+    0 ret
