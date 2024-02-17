@@ -1,5 +1,7 @@
 &refer !native
 
+;; comments
+
 Human :: class {
     #init {
         var Int :: self[height] = 148
