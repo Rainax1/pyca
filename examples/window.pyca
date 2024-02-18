@@ -1,0 +1,20 @@
+;; refer native lib
+&refer !native
+;; refer simple_window lib for creating GUI
+&refer extra::simple_window as sm
+&refer extra::simple_window::Colorpicker
+
+;; initalize screen 
+stdscr sm.Init()
+
+;; initalize colors
+sm.Initcolor!
+
+
+!ex:
+    ;; make window with title "Sample Window"
+    var Str :: color = name=True, Colorpicker
+    caption="Sample Window",capcolor=color, capbg="Blue" sm.Window
+!end:
+    ;; end program with  0 error code
+    0 ret

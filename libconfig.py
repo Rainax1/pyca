@@ -8,6 +8,7 @@ math = "math"
 randomly = "random"
 colors = "colors"
 myterminal = ""
+simple_window = "pygame"
 
 # Command = "subprocess.call"
 # Commandrun = "subprocess.run"
