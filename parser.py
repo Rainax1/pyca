@@ -7,10 +7,16 @@ from sys import exit as sysexit
 
 class Parser:
     def __init__(self, code: str) -> None:
-        self.code = code
+        self.code = code.strip().split("\n")
 
-        self.code = Parser(code)
+        self.code = self.ParseImports(code)
 
-    def ParseComments(self, code: str) -> str:
+    def ParseAll(self, code):
         pass
 
+    def ParseImports(self, code: str) -> str:
+        for line in code:
+            print(line)
+
+
+Parser("code\nfd")
